@@ -85,8 +85,8 @@ def fetch_orders():
     return orders
 
 def extract_line_items(order):
-    shipping = order.get('shipping_total') or '0'
-    taxes = order.get('total_tax') or '0'
+    shipping = float(order.get('shipping_total') or 0)
+    taxes = float(order.get('total_tax') or 0)
     order_id = order.get('id')
     order_date = order.get('date_created')
     customer_id = order.get('customer_id')
@@ -95,7 +95,7 @@ def extract_line_items(order):
     rows = []
     for item in order.get('line_items', []):
         quantity = item.get('quantity', 0)
-        line_total = item.get('total', '0')
+        line_total = float(item.get('total', 0))
         sku = item.get('sku')
         product_cost = 0
         for meta in item.get('meta_data', []):
