@@ -17,9 +17,10 @@ prompt for the base URL, consumer key, and consumer secret and store them in
 `wc_credentials.json` for future use. You can override the location of this
 file with the `--config` option.
 
-If you provide a Google service account JSON file (for example
-`naturesseed-automation-16f8b4735fb5.json`) with the `--auth-file` option,
-the script will also upload `orders.csv` to the Google Sheet at
+If an additional auth JSON file is required (for example
+`naturesseed-automation-16f8b4735fb5.json`), provide it with the
+`--auth-file` option. When supplied, the script also uploads `orders.csv` to
+the Google Sheet at
 `https://docs.google.com/spreadsheets/d/1kJH3Gk9IVJoLp6MqDj7lit_iqsMdYWYvEpsUz4pVDxc`.
 Data is written to the `order_data` worksheet and replaces any existing
 content.
